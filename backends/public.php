@@ -79,7 +79,7 @@ class generalBackend
 				$data['mainPromoted'] = $this->model->getPromotedCompaniesByCategory($categoryId);
 				
 				//		get companies with a correct location
-				$data['companies_map']	= $this->model->getCompaniesWithLocation();
+				$data['companies_map']	= $this->model->getCompaniesWithLocationByCategory($categoryId);
 				
 				$data['events'] = $this->model->getLastEvents();
 				

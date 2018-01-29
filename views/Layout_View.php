@@ -495,10 +495,16 @@ class Layout_View
                             <br>
                             Contamos con un grupo de personas calificadas en cada área que conforman un equipo especializado 
                             en comunicación y entretenimiento
+                            
                         </p>
+                        <a href="callto:info@wheretogo.com.mx" class="text-bermuda"> info@wheretogo.com.mx</a>
+                            <div class="unit-body"><a href="contacts.html" class="text-dove-gray">Playa del Carmen Quintana Roo, México. 9:00am–9:00pm</a></div>
+                            <div class="unit-body"><a href="callto:984 100 7533" class="text-dove-gray">984 100 7533</a></div>
+                        
                     </div>
                 </div>
                 <div class="range range-xs-center inset-xl-left-75 range-xs-middle range-xl-justify offset-xl-top-75">
+                
                     <div class="cell-sm-3 cell-md-5 cell-lg-5 cell-xl-4 text-xl-center text-sm-left">
                         <a href="index.html" class="reveal-inline-block">
                             <img src="/images/logo-primary.png" width="202" height="56" alt="Where To Go Playa " class="img-responsive center-block">
@@ -509,11 +515,10 @@ class Layout_View
                             <span id="copyright-year">
                             </span> <?php echo $this->data['appInfo']['siteName']; ?>
                             <br>
-                            <a href="callto:info@wheretogo.com.mx" class="text-bermuda"> info@wheretogo.com.mx</a>
+                            
                         </p>
                         <!-- {%FOOTER_LINK}-->
                     </div>
-                </div>
             </div>
         </footer>
         <?php
@@ -587,49 +592,6 @@ class Layout_View
     	<!-- Contact Information-->
             <section>
                 <div class="rd-google-map-wrap">
-                    <div class="section-60 section-md-0 inset-left-15 inset-right-15 inset-md-left-0 inset-md-right-0">
-                        <!-- Box-->
-                        <div class="box-lg box-contacts bg-white text-left center-block shadow-drop">
-                            <hr class="divider hr-left-0 bg-bermuda">
-                            <div class="offset-top-15">
-                                <h5>Contacto</h5>
-                                <!-- Contact Info-->
-                                <address class="contact-info offset-top-35 p">
-				                    <!-- Unit-->
-				                    <div class="unit unit-horizontal unit-spacing-xs">
-				                      <div class="unit-left">
-				                          <span class="icon icon-normal icon-sm icon-sm-variant-2 mdi mdi-map-marker text-primary"></span></div>
-				                      <div class="unit-body"><a href="contacts.html" class="text-dove-gray">Playa del Carmen Quintana Roo, México.</a></div>
-				                    </div>
-				                    <!-- Unit-->
-				                    <div class="unit unit-horizontal unit-spacing-xs offset-top-20">
-				                      <div class="unit-left">
-				                          <span class="icon icon-normal icon-sm icon-sm-variant-2 mdi mdi-calendar-clock text-primary"></span></div>
-				                      <div class="unit-body">
-				                        <p class="text-dove-gray"> 9:00am–9:00pm </p>
-				                      </div>
-				                    </div>
-				                    <!-- Unit-->
-				                    <div class="unit unit-horizontal unit-spacing-xs offset-top-20">
-				                      <div class="unit-left">
-				                        <div class="icon icon-normal icon-sm icon-sm-variant-2 mdi mdi-phone text-primary"></div>
-				                      </div>
-				                      <div class="unit-body"><a href="callto:984 100 7533" class="text-dove-gray">984 100 7533</a></div>
-				                    </div>
-				                    <!-- Unit-->
-				                    <div class="unit unit-horizontal unit-spacing-xs offset-top-20">
-				                      <div class="unit-left">
-				                        <div class="icon icon-normal icon-sm icon-sm-variant-2 mdi mdi-email-outline text-primary"></div>
-				                      </div>
-				                      <div class="unit-body"><a href="mailto:info@wheretogo.com.mx" class="text-dove-gray">info@wheretogo.com.mx</a></div>
-				                    </div>
-				                  </address> 
-                  			</div>
-                        </div>
-                    </div>
-                    <?php 
-//                     var_dump($this->data);
-                    ?>
                     <!-- RD Google Map-->
                     <div data-zoom="15" data-x="-87.071270" data-y="20.647151" data-styles="[{&quot;featureType&quot;:&quot;landscape.natural&quot;,&quot;elementType&quot;:&quot;geometry.fill&quot;,&quot;stylers&quot;:[{&quot;visibility&quot;:&quot;on&quot;},{&quot;color&quot;:&quot;#e0efef&quot;}]},{&quot;featureType&quot;:&quot;poi&quot;,&quot;elementType&quot;:&quot;geometry.fill&quot;,&quot;stylers&quot;:[{&quot;visibility&quot;:&quot;on&quot;},{&quot;hue&quot;:&quot;#1900ff&quot;},{&quot;color&quot;:&quot;#c0e8e8&quot;}]},{&quot;featureType&quot;:&quot;road&quot;,&quot;elementType&quot;:&quot;geometry&quot;,&quot;stylers&quot;:[{&quot;lightness&quot;:100},{&quot;visibility&quot;:&quot;simplified&quot;}]},{&quot;featureType&quot;:&quot;road&quot;,&quot;elementType&quot;:&quot;labels&quot;,&quot;stylers&quot;:[{&quot;visibility&quot;:&quot;off&quot;}]},{&quot;featureType&quot;:&quot;transit.line&quot;,&quot;elementType&quot;:&quot;geometry&quot;,&quot;stylers&quot;:[{&quot;visibility&quot;:&quot;on&quot;},{&quot;lightness&quot;:700}]},{&quot;featureType&quot;:&quot;water&quot;,&quot;elementType&quot;:&quot;all&quot;,&quot;stylers&quot;:[{&quot;color&quot;:&quot;#7dcdcd&quot;}]}]" class="rd-google-map rd-google-map__model">
                         <ul class="map_locations">
@@ -745,18 +707,19 @@ class Layout_View
                             <?php 
                             foreach ($this->data['companies'] as $company)
                             {
+                            	$link = "/company/".$company['category_id']."/".Tools::slugify($company['category'])."/".$company['company_id']."/".Tools::slugify($company['name'])."/";
                             	?>
                             <div data-filter="<?php foreach ($company['subcategories'] as $subcategory){echo $subcategory['name'].', ';}?>" class="col-xs-12 col-sm-6 isotope-item">
                               <div class="product product-horizontal thumbnail-robben">
                               <div class="product-body bg-selago">
-                                  <a href="playa-de-carmen-restaurant-casa-mayahuel.html">
+                                  <a href="<?php echo $link; ?>">
                                       <img src="<?php echo $this->data['appInfo']['url']; ?>/media/companies/logo/<?php echo $company['logo']; ?>" width="300" height="auto" alt="<?php echo $company['name']; ?>Casa Mayahuel" class="img-responsive center-block img-semi-transparent-inverse">
                                   </a>
                                   <h3><?php echo $company['name']; ?></h3>
                                   <p><?php echo $company['description']; ?></p>
                                   <div class="product-btn-wrap offset-top-20">
                                       
-                                    <a href="playa-de-carmen-restaurant-casa-mayahuel.html" class="btn btn-xs btn-bermuda">más</a>
+                                    <a href="<?php echo $link; ?>" class="btn btn-xs btn-bermuda">más</a>
                                   </div>
                               </div>
                             </div>

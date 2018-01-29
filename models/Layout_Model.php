@@ -747,6 +747,37 @@ class Layout_Model
 	}
 	
 	/**
+	 * getCompaniesWithLocation
+	 *
+	 * Returns an array of companies with location, not null, numeric, != 0
+	 *
+	 * @return multitype:unknown |boolean
+	 */
+	public function getCompaniesWithLocationByCategory($categoryId)
+	{
+		try
+		{
+			$query = 'SELECT C.*,
+					S.title, S.description AS seo_description,
+					cat.name as category_name,
+					p.logo
+					FROM companies AS C
+					LEFT JOIN seo S ON S.company_id = C.company_id
+					LEFT JOIN categories cat ON cat.category_id = C.category
+					LEFT JOIN company_logo p ON C.company_id = p.company_id
+					WHERE ((C.longitude IS NOT NULL AND C.longitude != 0) AND
+					(C.latitude IS NOT NULL AND C.latitude != 0))
+					AND C.published = 1 AND C.closed = 0 AND c.category = '.$categoryId;
+			
+			return $this->db->getArray($query);
+		}
+		catch (Exception $e)
+		{
+			return false;
+		}
+	}
+	
+	/**
 	 * getResultsAll
 	 * 
 	 * search a term
